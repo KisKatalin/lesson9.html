@@ -1,0 +1,156 @@
+
+@import '../base/mixins';
+@import '../base/variables';
+
+body{
+ background-color: $main-color;
+ margin: 0;
+}
+.main{
+  @include box(100%, 200px);
+  display: flex;
+  flex-direction: row;
+  margin-top: 150px;
+  background-color: $third-color;
+}
+.block{
+  @include box(75px, 200px);
+  display: flex;
+  border: {
+  right: 0.5px solid lightgrey;
+  top: 0.5px solid lightgrey;
+  bottom: 0.5px solid lightgrey;
+  };
+
+.logo{
+  @include box(75px, 200px);
+  background-color: $second-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  z-index: 9;
+  img{
+    @include box(35px, 35px);
+    padding: 20px;
+  }
+}
+.mover{
+  @extend .logo;
+  display: none;
+  img{
+    @include box(40px, 40px);
+  }
+  &-twitter{
+    background-color: rgb(51, 174, 245);
+  }
+  &-facebook{
+    background-color: rgb(23, 67, 212);
+  }
+  &-linkedin{
+    background-color: rgb(29, 117, 175);
+  }
+  &-instagram{
+    background-color: rgb(26, 134, 23);
+  }
+  &-youtube{
+    background-color: rgb(172, 18, 13);
+  }
+  &-tumblr{
+    background-color: rgb(33, 51, 110);
+  }
+  &-drib{
+    background-color: rgb(218, 74, 146);
+  }
+}
+.text{
+  display: none;
+  padding: 50px 35px 50px 10px;
+  width: 0px;
+  height: 200px;
+  box-sizing: border-box;
+  background-color: whitesmoke;
+  .bold-text{
+    width: 420px;
+    display: none;
+    font: {
+      family: sans-serif;
+      weight: normal;
+      size: 30px;
+  }
+  
+  }
+  .smth-text{
+
+    display: none;
+  }
+}
+&:hover .text{
+  display: block;
+  animation: moveText 5s;
+  transition: 5s;
+  
+}
+&:hover .text .bold-text,.text .smth-text{
+  display: block;
+  animation: moveText 5s;
+  transition: 5s;
+  width: 420px;
+}
+
+&:hover {
+  animation: move 5s;
+}
+&:hover .mover{
+  animation: logo 5s;
+}
+
+} 
+
+
+
+@keyframes move{
+  0%{
+
+    width: 75px;
+  }
+  75%{
+    width: 530px;
+  }
+  100%{
+
+    width: 75px;
+  }
+}
+@keyframes moveText{
+  0%{
+    width: 0px;
+  }
+  75%{
+    width: 530px;
+  }
+  100%{
+    visibility: hidden;
+    width: 0px;
+  }
+}
+
+@keyframes logo{
+  0%{
+    display: flex;
+  z-index: 99;
+  transform: translateX(0%);
+  left: 0%;
+  width: 0px;
+  }
+  75%{
+    transform: translateX(-100%);
+    left: 100%;
+    width: 75px;
+  }
+  100%{
+    transform: translateX(0%);
+    left: 0%;
+    
+  }
+}
