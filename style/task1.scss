@@ -65,24 +65,35 @@ body{
 }
 .text{
   display: none;
-  padding: 50px 35px 50px 10px;
   width: 0px;
   height: 200px;
   box-sizing: border-box;
   background-color: whitesmoke;
+  overflow: hidden;
+  width: 420px;
   .bold-text{
     width: 420px;
     display: none;
+     overflow: hidden;
+      margin-top: 40px;
+      padding-left: 10px;
+      padding-right: 10px;
     font: {
       family: sans-serif;
       weight: normal;
       size: 30px;
+    
+  
   }
   
   }
   .smth-text{
-
+    width: 420px;
+    overflow: hidden;
     display: none;
+    margin-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 &:hover .text{
