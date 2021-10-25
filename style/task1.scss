@@ -16,6 +16,7 @@ body{
 .block{
   @include box(75px, 200px);
   display: flex;
+  background-color: whitesmoke;
   border: {
   right: 0.5px solid lightgrey;
   top: 0.5px solid lightgrey;
@@ -30,6 +31,7 @@ body{
   align-items: center;
   box-sizing: border-box;
   z-index: 9;
+  transition: 2s;
   img{
     @include box(35px, 35px);
     padding: 20px;
@@ -37,9 +39,12 @@ body{
 }
 .mover{
   @extend .logo;
-  display: none;
+  @include box(0, 200px);
+  visibility: hidden;
+  transition: 1s;
   img{
-    @include box(40px, 40px);
+    @include box(0px, 0px);
+    visibility: hidden;
   }
   &-twitter{
     background-color: rgb(51, 174, 245);
@@ -64,104 +69,72 @@ body{
   }
 }
 .text{
-  display: none;
-  width: 0px;
-  height: 200px;
-  box-sizing: border-box;
-  background-color: whitesmoke;
-  overflow: hidden;
+  @include box(420px, 100%);
+  visibility: hidden;
+  height: 100%;
   width: 420px;
+  transition: 2s;
+  transform: translateX(-50%);
+  padding-right: 10px;
+  padding-left: 10px;
+
   .bold-text{
     width: 420px;
-    display: none;
-     overflow: hidden;
-      margin-top: 40px;
-      padding-left: 10px;
-      padding-right: 10px;
+    overflow: hidden;
+    visibility: hidden;
+    margin-top: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    
     font: {
       family: sans-serif;
       weight: normal;
       size: 30px;
-    
-  
-  }
+    }
   
   }
   .smth-text{
-    width: 420px;
     overflow: hidden;
-    display: none;
+    visibility: hidden;
+    width: 420px;
     margin-top: 20px;
     padding-left: 10px;
     padding-right: 10px;
+    
+  
   }
 }
 &:hover .text{
+  transform: translateX(-20%);
+  visibility: visible;
   display: block;
-  animation: moveText 5s;
-  transition: 5s;
-  
 }
-&:hover .text .bold-text,.text .smth-text{
+&:hover .text .bold-text, &:hover .text .smth-text{
+  transform: translateX(0);
+  visibility: visible;
   display: block;
-  animation: moveText 5s;
-  transition: 5s;
-  width: 420px;
+  
 }
 
 &:hover {
-  animation: move 5s;
+width: 500px;
+border: none;
+}
+&:hover .logo{
+  visibility: hidden;
 }
 &:hover .mover{
-  animation: logo 5s;
+  transform: translateX(-100%);
+  visibility: visible;
+  width: 75px;
 }
-
+&:hover .mover img{
+  height: 40px;
+  width: 40px;
+  visibility: visible;
+ 
+}
 } 
 
 
 
-@keyframes move{
-  0%{
-
-    width: 75px;
-  }
-  75%{
-    width: 530px;
-  }
-  100%{
-
-    width: 75px;
-  }
-}
-@keyframes moveText{
-  0%{
-    width: 0px;
-  }
-  75%{
-    width: 530px;
-  }
-  100%{
-    visibility: hidden;
-    width: 0px;
-  }
-}
-
-@keyframes logo{
-  0%{
-    display: flex;
-  z-index: 99;
-  transform: translateX(0%);
-  left: 0%;
-  width: 0px;
-  }
-  75%{
-    transform: translateX(-100%);
-    left: 100%;
-    width: 75px;
-  }
-  100%{
-    transform: translateX(0%);
-    left: 0%;
-    
-  }
-}

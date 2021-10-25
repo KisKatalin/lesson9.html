@@ -1,0 +1,49 @@
+.parent {
+  background-color: blueviolet;
+  height: 800px;
+  width: 800px;
+}
+
+.child {
+  display: flex;
+  width: 50%;
+  height: 50%;
+}
+
+.child-color {
+  background-color: aqua;
+  height: 50%;
+  width: 50%;
+  transition: 1s;
+}
+
+.child-red {
+  background-color: red;
+  height: 50%;
+  width: 50%;
+  visibility: hidden;
+  transition: 1s;
+}
+
+.child-text {
+  height: 50%;
+  width: 100%;
+  background-color: white;
+  visibility: hidden;
+  transition: 1s;
+  transform: translateX(-50%);
+}
+
+.child:hover .child-text {
+  transform: translateX(100%);
+  visibility: visible;
+}
+
+.child:hover .child-red {
+  transform: translateX(-100%);
+  visibility: visible;
+}
+
+.child:hover .child-color {
+  visibility: hidden;
+}

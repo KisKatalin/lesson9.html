@@ -16,6 +16,7 @@ body {
   width: 75px;
   height: 200px;
   display: flex;
+  background-color: whitesmoke;
   border-right: 0.5px solid lightgrey;
   border-top: 0.5px solid lightgrey;
   border-bottom: 0.5px solid lightgrey;
@@ -29,6 +30,7 @@ body {
   align-items: center;
   box-sizing: border-box;
   z-index: 9;
+  transition: 2s;
 }
 .block .logo img, .block .mover img {
   width: 35px;
@@ -36,11 +38,15 @@ body {
   padding: 20px;
 }
 .block .mover {
-  display: none;
+  width: 0;
+  height: 200px;
+  visibility: hidden;
+  transition: 1s;
 }
 .block .mover img {
-  width: 40px;
-  height: 40px;
+  width: 0px;
+  height: 0px;
+  visibility: hidden;
 }
 .block .mover-twitter {
   background-color: #33aef5;
@@ -64,18 +70,20 @@ body {
   background-color: #da4a92;
 }
 .block .text {
-  display: none;
-  width: 0px;
-  height: 200px;
-  box-sizing: border-box;
-  background-color: whitesmoke;
-  overflow: hidden;
   width: 420px;
+  height: 100%;
+  visibility: hidden;
+  height: 100%;
+  width: 420px;
+  transition: 2s;
+  transform: translateX(-50%);
+  padding-right: 10px;
+  padding-left: 10px;
 }
 .block .text .bold-text {
   width: 420px;
-  display: none;
   overflow: hidden;
+  visibility: hidden;
   margin-top: 40px;
   padding-left: 10px;
   padding-right: 10px;
@@ -84,115 +92,37 @@ body {
   font-size: 30px;
 }
 .block .text .smth-text {
-  width: 420px;
   overflow: hidden;
-  display: none;
+  visibility: hidden;
+  width: 420px;
   margin-top: 20px;
   padding-left: 10px;
   padding-right: 10px;
 }
 .block:hover .text {
+  transform: translateX(-20%);
+  visibility: visible;
   display: block;
-  -webkit-animation: moveText 5s;
-          animation: moveText 5s;
-  transition: 5s;
 }
-.block:hover .text .bold-text, .block .text .smth-text {
+.block:hover .text .bold-text, .block:hover .text .smth-text {
+  transform: translateX(0);
+  visibility: visible;
   display: block;
-  -webkit-animation: moveText 5s;
-          animation: moveText 5s;
-  transition: 5s;
-  width: 420px;
 }
 .block:hover {
-  -webkit-animation: move 5s;
-          animation: move 5s;
+  width: 500px;
+  border: none;
+}
+.block:hover .logo, .block:hover .mover {
+  visibility: hidden;
 }
 .block:hover .mover {
-  -webkit-animation: logo 5s;
-          animation: logo 5s;
+  transform: translateX(-100%);
+  visibility: visible;
+  width: 75px;
 }
-
-@-webkit-keyframes move {
-  0% {
-    width: 75px;
-  }
-  75% {
-    width: 530px;
-  }
-  100% {
-    width: 75px;
-  }
-}
-
-@keyframes move {
-  0% {
-    width: 75px;
-  }
-  75% {
-    width: 530px;
-  }
-  100% {
-    width: 75px;
-  }
-}
-@-webkit-keyframes moveText {
-  0% {
-    width: 0px;
-  }
-  75% {
-    width: 530px;
-  }
-  100% {
-    visibility: hidden;
-    width: 0px;
-  }
-}
-@keyframes moveText {
-  0% {
-    width: 0px;
-  }
-  75% {
-    width: 530px;
-  }
-  100% {
-    visibility: hidden;
-    width: 0px;
-  }
-}
-@-webkit-keyframes logo {
-  0% {
-    display: flex;
-    z-index: 99;
-    transform: translateX(0%);
-    left: 0%;
-    width: 0px;
-  }
-  75% {
-    transform: translateX(-100%);
-    left: 100%;
-    width: 75px;
-  }
-  100% {
-    transform: translateX(0%);
-    left: 0%;
-  }
-}
-@keyframes logo {
-  0% {
-    display: flex;
-    z-index: 99;
-    transform: translateX(0%);
-    left: 0%;
-    width: 0px;
-  }
-  75% {
-    transform: translateX(-100%);
-    left: 100%;
-    width: 75px;
-  }
-  100% {
-    transform: translateX(0%);
-    left: 0%;
-  }
+.block:hover .mover img {
+  height: 40px;
+  width: 40px;
+  visibility: visible;
 }/*# sourceMappingURL=task1.css.map */
